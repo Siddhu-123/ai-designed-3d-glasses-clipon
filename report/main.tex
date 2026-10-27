@@ -52,7 +52,7 @@
 \newtcolorbox{outcome}{enhanced,colback=white,colframe=navy!15,boxrule=0.6pt,arc=2pt,left=8pt,right=8pt,top=4pt,bottom=4pt,fontupper=\small,
   title={\sffamily\bfseries\scriptsize\faCheckCircle\enspace WHAT IT CAUGHT},coltitle=navy,attach title to upper,after title={\enspace}}
 \newtcolorbox{template}[1]{enhanced,breakable,colback=navy!3,colframe=navy,boxrule=0.8pt,arc=3pt,left=8pt,right=8pt,top=6pt,bottom=6pt,
-  title={\sffamily\bfseries\small\faTerminal\enspace #1},colbacktitle=navy,coltitle=white,fonttitle=\sffamily,fontupper=\ttfamily\small}
+  title={\sffamily\bfseries\small\faTerminal\enspace #1},colbacktitle=navy,coltitle=white,fonttitle=\sffamily,fontupper=\ttfamily\small\raggedright}
 \newtcolorbox{keyidea}{enhanced,colback=teal!7,colframe=teal,boxrule=0pt,arc=2pt,borderline west={4pt}{0pt}{teal},left=10pt,fontupper=\sffamily\small}
 \newtcolorbox{warnbox}{enhanced,colback=coral!7,colframe=coral,boxrule=0pt,arc=2pt,borderline west={4pt}{0pt}{coral},left=10pt,fontupper=\sffamily\small}
 \newcommand{\stat}[3]{\begin{tcolorbox}[enhanced,nobeforeafter,width=3.95cm,height=2.0cm,valign=center,halign=center,colback=#3,colframe=#3,arc=3pt,boxrule=0pt,fontupper=\color{white}]
@@ -60,6 +60,7 @@
 \newcommand{\fig}[3][\linewidth]{\begin{figure}[H]\centering\includegraphics[width=#1]{#2}\caption{#3}\end{figure}}
 \usepackage[font={small,sf},labelfont={bf,color=teal},labelsep=quad]{caption}
 
+\setcounter{tocdepth}{2}
 \begin{document}
 % =====================================================================  COVER
 \thispagestyle{empty}
@@ -70,19 +71,8 @@
     \foreach \x in {0,0.6,...,21.6} \draw[white,opacity=0.05] (\x,0) -- (\x,29.7);
     \foreach \y in {0,0.6,...,29.7} \draw[white,opacity=0.05] (0,\y) -- (21,\y);
   \end{scope}
-  % stylised clip-on outline
-  \begin{scope}[shift={($(current page.center)+(0,3.2)$)},scale=1.35,line width=1.4pt]
-    \draw[teal,rounded corners=16pt] (-5.6,1.3) -- (-0.75,1.3) -- (-0.65,0.4) -- (-0.75,-1.55) -- (-4.9,-1.55) -- (-5.6,0.9) -- cycle;
-    \draw[teal,rounded corners=16pt] (5.6,1.3) -- (0.75,1.3) -- (0.65,0.4) -- (0.75,-1.55) -- (4.9,-1.55) -- (5.6,0.9) -- cycle;
-    \draw[teal] (-0.75,1.1) .. controls (-0.3,1.25) and (0.3,1.25) .. (0.75,1.1);
-    \foreach \p in {(-0.38,0.95),(-1.2,0.98),(0.38,0.95),(1.2,0.98),(-5.15,0.95),(5.15,0.95)}
-      {\fill[amber] \p circle (0.13); \draw[amber,opacity=0.35] \p circle (0.32);}
-    \fill[teal,opacity=0.10,rounded corners=14pt] (-5.35,1.08) -- (-0.98,1.08) -- (-0.9,-1.33) -- (-4.75,-1.33) -- cycle;
-    \fill[teal,opacity=0.10,rounded corners=14pt] (5.35,1.08) -- (0.98,1.08) -- (0.9,-1.33) -- (4.75,-1.33) -- cycle;
-    \draw[white,opacity=0.5,line width=0.4pt,<->] (-5.6,-2.0) -- node[below,font=\sffamily\scriptsize,text opacity=0.8]{144.15 mm} (5.6,-2.0);
-    \node[white,opacity=0.75,font=\sffamily\tiny,anchor=west] at (5.85,0.95) {6 $\times$ \O4$\times$1 mm NdFeB};
-    \node[white,opacity=0.75,font=\sffamily\tiny,anchor=west] at (5.85,-0.3) {0.2 mm polarised film};
-  \end{scope}
+  % real v15.1 outline, drawn from the design data (scripts/make_cover.py)
+  \node at ($(current page.center)+(0,3.6)$) {\includegraphics[width=16.5cm]{charts/cover_outline.pdf}};
   \node[anchor=north west,text width=17cm,white,align=left] at ($(current page.north west)+(2,-2.2)$)
     {{\sffamily\scriptsize\color{amber}TECHNICAL REPORT \textbullet{} PROMPT-ENGINEERING CASE STUDY \textbullet{} OCTOBER 2026}};
   \node[anchor=north west,text width=17.5cm,white,align=left] at ($(current page.center)+(-8.5,-1.6)$)
@@ -95,7 +85,7 @@
      {\heavy\Large\color{amber}21} & {\sffamily\scriptsize\color{white}design versions}\\
      {\heavy\Large\color{amber}108} & {\sffamily\scriptsize\color{white}prompts}\\
      {\heavy\Large\color{amber}27} & {\sffamily\scriptsize\color{white}days}\\
-     {\heavy\Large\color{amber}0.002} & {\sffamily\scriptsize\color{white}mm median fit gap}\end{tabular}};
+     {\heavy\Large\color{amber}0.002} & {\sffamily\scriptsize\color{white}mm modelled median fit gap}\end{tabular}};
 \end{tikzpicture}
 \newpage
 
@@ -110,7 +100,7 @@ the right questions, supplying real-world evidence, and refusing to accept confi
 \vspace{4pt}
 \noindent\stat{3.26 g}{clip mass, PLA (4.90 g with\\ film and magnets)}{navy}\hfill
 \stat{97.4\%}{of each lens left clear\\(front window)}{teal}\hfill
-\stat{0.002}{mm median gap, clip back\\to steel (p95 0.056 mm)}{violet}\hfill
+\stat{0.002}{mm modelled median gap,\\clip to steel (p95 0.056)}{violet}\hfill
 \stat{40$\times$}{estimated hold vs weight\\(2--3 N vs 0.05 N)}{coral}
 
 \vspace{6pt}
@@ -285,9 +275,9 @@ G & Smoothing v15.1 & I noticed the film cut was a wiggly trace, not a real cons
 \normalsize
 
 \begin{figure}[H]\centering
-\includegraphics[width=\linewidth]{charts/evolution.pdf}
-\caption{Sixteen clip versions rendered on the glasses. From the front they look almost identical, and that is the point: after v04 the
-engineering happened in tenths of a millimetre, in places a render cannot show. The analyses in Section~\ref{sec:verify} are where the versions differ.}
+\includegraphics[width=\linewidth]{charts/version_changes.pdf}
+\caption{What changed in each version. From the front the versions look almost identical; the engineering happened in tenths of a millimetre
+in the attachment, fit, film slot and scale. Each coloured cell is a change and its trigger; Section~\ref{sec:verify} shows the checks behind them.}
 \end{figure}
 
 \Needspace{16\baselineskip}\section{How I questioned the AI}
@@ -299,7 +289,7 @@ verification, 17 corrected a specific defect and 16 challenged a claim. They clu
 caught a problem first, then forced a new version.
 
 \IfFileExists{charts/prompt_anatomy.pdf}{%
-\begin{figure}[H]\centering
+\begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{charts/prompt_anatomy.pdf}
 \caption{Every prompt as a dot on the calendar, by primary intent; thin lines join a secondary intent. Right: totals.}
 \label{fig:anatomy}
@@ -319,11 +309,11 @@ the finding became a permanent rule; the AI rebuilt; a gate checked the rule fro
   \node[st=amber!85!black] (5) at (162:3.6) {rebuild + gate\\checks the rule};
   \draw[ar] (1) to[bend left=18] (2); \draw[ar] (2) to[bend left=18] (3); \draw[ar] (3) to[bend left=18] (4);
   \draw[ar] (4) to[bend left=18] (5); \draw[ar] (5) to[bend left=18] (1);
-  \node[font=\sffamily\scriptsize,text=slate,align=center] at (0,0) {ran $\approx$ 20 times\\in 27 days};
+  \node[font=\sffamily\scriptsize,text=slate,align=center] at (0,0) {33 challenge or\\correction prompts};
 \end{tikzpicture}
 \end{center}
 
-\clearpage\subsection{Case studies}
+\Needspace{20\baselineskip}\subsection{Case studies}
 \Needspace{10\baselineskip}
 \subsubsection{1. ``Why this gap?'': refusing a known defect}
 \begin{minipage}[t]{0.56\linewidth}
@@ -332,12 +322,16 @@ why this gap? any reasoning ? you kept it even tho you know thats visible from y
 \end{prompt}
 \begin{outcome}The AI's own contact analysis already showed the gap between clip back and steel. It had reported it instead of fixing it.
 The clip back was rebuilt from the true steel surface (v08). Since then the rule is: never present a fit with a flaw the analysis shows.
-Final v15.1: median gap 0.002 mm.\end{outcome}
+Final v15.1: modelled median gap 0.002 mm.\end{outcome}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.41\linewidth}\vspace{0pt}
-\includegraphics[width=\linewidth]{figures/markup_gap.jpg}\\[2pt]
-\includegraphics[width=\linewidth]{figures/gap_before_after.jpg}
+\includegraphics[width=\linewidth]{figures/markup_gap.jpg}\\[1pt]
+{\sffamily\scriptsize\color{slate} My markup on the AI's render: the visible gap between clip and rim.}
 \end{minipage}
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{figures/gap_before_after.jpg}
+\caption{The gap before and after the clip back was rebuilt from the true steel surface.}
+\end{figure}
 
 \Needspace{10\baselineskip}
 \subsubsection{2. The slanted magnet hole and the hidden bevel}
@@ -350,9 +344,13 @@ if thats the hole direction ... why are the holes visible from outside i want th
 blind from the front (cover $\ge$ 0.95 mm, final 1.183 mm), and the front got a gentle bevel I sketched to add thickness without blocking the view.\end{outcome}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.41\linewidth}\vspace{0pt}
-\includegraphics[width=0.49\linewidth]{figures/markup_hole.jpg}\hfill\includegraphics[width=0.49\linewidth]{figures/markup_bevel.jpg}
-{\sffamily\scriptsize\color{slate} My own markups on the AI's renders: a ``?'' on the slanted pocket and a sketched bevel profile.}
+\includegraphics[width=\linewidth]{figures/markup_bevel.jpg}\\[1pt]
+{\sffamily\scriptsize\color{slate} My sketched bevel profile on the AI's section.}
 \end{minipage}
+\begin{figure}[H]\centering
+\includegraphics[width=0.8\linewidth]{figures/markup_hole.jpg}
+\caption{My markup on the AI's render: the ``?'' on the slanted pocket that a magnet could not sit in flat.}
+\end{figure}
 
 \Needspace{10\baselineskip}
 \subsubsection{3. Reading the datasheet more carefully than the AI}
@@ -363,10 +361,10 @@ are you sure? made sure all the parameters are considered and calculated? cause 
 \begin{outcome}The hold model was re-derived with orientation, thin-steel saturation and air gap; I then asked to see where magnets can sit with a
 depth/flatness map, stuck 20 magnets on my real rims to test, and asked for more magnets. Result: six single magnets (v13), 87--92\% of each magnet face over flat steel.\end{outcome}
 
-\begin{figure}[H]\centering
-\includegraphics[width=0.49\linewidth]{figures/steel_depth.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/six_magnet_proposal.jpg}
-\caption{Left: the steel depth and flatness map I asked for (prompt 86), so I could judge myself where a 4 mm magnet keeps contact. Right: the six-magnet proposal (green) against the old four (red dashed).}
+\begin{figure}[tbp]\centering
+\includegraphics[width=0.56\linewidth]{figures/steel_depth.jpg}\\[4pt]
+\includegraphics[width=0.88\linewidth]{figures/six_magnet_proposal.jpg}
+\caption{Top: the steel depth and flatness map I asked for (prompt 86), so I could judge myself where a 4 mm magnet keeps contact. Bottom: the six-magnet proposal (green) against the old four (red dashed).}
 \end{figure}
 
 \Needspace{10\baselineskip}
@@ -459,58 +457,58 @@ Every number below is for the final v15.1 unless noted. Figure~\ref{fig:margins}
 
 \Needspace{12\baselineskip}\subsection{Gate 1 -- Shape and size}
 \begin{figure}[H]\centering
-\includegraphics[width=0.49\linewidth]{figures/model_vs_bezier.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/grid_fit.jpg}
+\includegraphics[height=5.78cm]{figures/model_vs_bezier.jpg}\hfill
+\includegraphics[height=5.78cm]{figures/grid_fit.jpg}
 \caption{Left: model top view against my hand-drawn B\'ezier curve. Right: model outline fitted to the glasses photographed on 6 mm grid paper.}
 \end{figure}
 
 \Needspace{12\baselineskip}\subsection{Gate 2 -- Fit and contact}
 \begin{figure}[H]\centering
-\includegraphics[width=0.62\linewidth]{figures/gap.jpg}
-\caption{Gap from the clip back to the steel. Median 0.002 mm, 95th percentile 0.056 mm.}
+\includegraphics[width=\linewidth]{figures/gap.jpg}
+\caption{Modelled gap from the clip back to the steel model. Median 0.002 mm, 95th percentile 0.056 mm. The real gap is measured at the dry fit.}
 \end{figure}
 
 \Needspace{12\baselineskip}\subsection{Gate 3 -- Magnets}
 \begin{figure}[H]\centering
-\includegraphics[width=0.49\linewidth]{figures/magnet_spots.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/pockets.jpg}
+\includegraphics[height=5.06cm]{figures/magnet_spots.jpg}\hfill
+\includegraphics[height=5.06cm]{figures/pockets.jpg}
 \caption{Six pockets: four at the bridge, two at the outer corners. Right: sections through each pocket; magnet face 0.08--0.16 mm from the steel, wall $\ge$ 0.997 mm, front cover $\ge$ 1.183 mm.}
 \end{figure}
 
 \Needspace{12\baselineskip}\subsection{Gate 4 -- Strength}
 \begin{figure}[H]\centering
-\includegraphics[width=0.49\linewidth]{figures/stress.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/thickness.jpg}
+\includegraphics[height=4.82cm]{figures/stress.jpg}\hfill
+\includegraphics[height=4.82cm]{figures/thickness.jpg}
 \caption{Plate-model FEA with one-way steel contact and five removal cases (peak 1.4 MPa in the worst grab), and the wall-thickness map. Comparative, not absolute.}
 \end{figure}
 
 \Needspace{12\baselineskip}\subsection{Gate 5 -- Film loading}
 \begin{figure}[H]\centering
-\includegraphics[width=0.49\linewidth]{figures/film_loading.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/loading_sweep.jpg}
-\caption{The film is bowed about 7 mm in the middle, set in from the back and snaps flat. The sweep checks every intermediate state: minimum clearance 0.056 mm, bending strain under the assumed 1\% limit.}
+\includegraphics[height=6.59cm]{figures/film_loading.jpg}\hfill
+\includegraphics[height=6.59cm]{figures/loading_sweep.jpg}
+\caption{The film is bowed about 7 mm in the middle, set in from the back and snaps flat. The sweep checks every intermediate state: minimum clearance 0.056 mm, peak bending strain 0.898\% against an assumed 1\% limit (the film's real limit is unknown).}
 \end{figure}
 
 \Needspace{12\baselineskip}\subsection{Gate 6 -- View and comfort}
 \begin{figure}[H]\centering
-\includegraphics[width=0.49\linewidth]{figures/eye_view.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/face_3q.jpg}
+\includegraphics[height=4.69cm]{figures/eye_view.jpg}\hfill
+\includegraphics[height=4.69cm]{figures/face_3q.jpg}
 \caption{Left: what the eye sees through both lenses. Right: a face fitted to my photo's proportions; 5,948 nose variants tested, none touch; the cheek gap below the lower rims is the one to watch (my photo itself stays private).}
 \end{figure}
 
 \Needspace{12\baselineskip}\subsection{Gate 7 -- Printability}
 \begin{figure}[H]\centering
-\includegraphics[width=0.49\linewidth]{figures/gcode.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/stl_quality.jpg}
-\caption{Printed upright (after I questioned the flat orientation), 0.1 mm layers, tree supports, blockers keep supports out of the magnet pockets. Mesh: one shell, no non-manifold edges.}
+\includegraphics[width=0.9\linewidth]{figures/gcode.jpg}\\[4pt]
+\includegraphics[width=\linewidth]{figures/stl_quality.jpg}
+\caption{Top: slicer preview. Bottom: mesh checks. Printed upright (after I questioned the flat orientation), 0.1 mm layers, tree supports, blockers keep supports out of the magnet pockets. Mesh: one shell, no non-manifold edges.}
 \end{figure}
 
 \clearpage\section{The final design}
 \begin{figure}[H]\centering
-\includegraphics[width=0.49\linewidth]{figures/render_3q.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/render_back.jpg}\\[4pt]
-\includegraphics[width=0.49\linewidth]{figures/render_xray.jpg}\hfill
-\includegraphics[width=0.49\linewidth]{figures/layout.jpg}
+\includegraphics[width=\linewidth]{figures/render_3q.jpg}\\[4pt]
+\includegraphics[width=\linewidth]{figures/render_back.jpg}\\[4pt]
+\includegraphics[width=0.495\linewidth]{figures/render_xray.jpg}\hfill
+\includegraphics[width=0.495\linewidth]{figures/layout.jpg}
 \caption{v15.1 on the glasses model: three-quarter view, back with the six pockets, x-ray of the film in its slot, and the design layout.}
 \end{figure}
 
@@ -524,6 +522,11 @@ View & front window leaves 97.4\% of each lens clear \\
 Print & Ultimaker 2+, PLA, 0.1 mm layers, 100\% infill, 8 mm brim, tree supports, 2 h 9 min, 7.3 g with supports \\
 Assembly & dry fit with loose magnets $\to$ epoxy (24 h cure) $\to$ cut film $\to$ bow-and-snap loading \\ \bottomrule
 \end{tabularx}\end{center}
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{charts/blueprint.pdf}
+\caption{v15.1 drawn from the design data: clip outline, front windows, film groove and the six magnet positions.}
+\end{figure}
 
 \Needspace{16\baselineskip}\section{Open items and field results}
 \label{sec:field}
@@ -564,18 +567,18 @@ Time & 3--6 evenings for the design; 2--3 h print; 24 h epoxy cure. & \\ \bottom
 \begin{center}
 \begin{tikzpicture}[
   q/.style={diamond,aspect=2.2,fill=navy,text=white,font=\sffamily\scriptsize\bfseries,align=center,inner sep=1pt},
-  r/.style={rounded corners=3pt,fill=#1,text=white,font=\sffamily\scriptsize,align=center,minimum width=3.6cm,minimum height=12mm,text width=3.4cm},
+  r/.style={rounded corners=3pt,fill=#1,text=white,font=\sffamily\scriptsize,align=center,minimum width=3.85cm,minimum height=15mm,text width=3.6cm},
   ar/.style={-{Latex[length=2mm]},line width=0.8pt,navy!55},lab/.style={font=\sffamily\scriptsize\bfseries,text=slate}]
-  \node[q] (q1) {Does a magnet\\stick to the front?};
-  \node[q,below left=10mm and 8mm of q1] (q2) {Flat steel \\$\ge$ 4 mm wide at\\bridge \& corners?};
-  \node[q,below right=10mm and 8mm of q1] (q3) {Full rim\\(lens has a\\frame around it)?};
-  \node[r=teal,below left=10mm and -12mm of q2] (m1) {\textbf{Magnetic route}\\as in this report (6$\times$ 4$\times$1 mm)};
-  \node[r=teal!70!navy,below right=10mm and -12mm of q2] (m2) {\textbf{Hybrid}\\magnets at bridge +\\clamp hooks at corners};
-  \node[r=violet,below left=10mm and -12mm of q3] (c1) {\textbf{Perimeter clamp}\\hooks over top rim +\\lips under bottom rim};
-  \node[r=coral,below right=10mm and -12mm of q3] (c2) {\textbf{Lens-edge snap}\\TPU-lined grips; test\\coupon essential};
+  \node[q] (q1) at (0,0) {Does a magnet\\stick to the front?};
+  \node[q] (q2) at (-4.1,-2.9) {Flat steel\\$\ge$ 4 mm wide at\\bridge \& corners?};
+  \node[q] (q3) at (4.1,-2.9) {Full rim\\(frame around\\the lens)?};
+  \node[r=teal] (m1) at (-6.15,-6.3) {\textbf{Magnetic route}\\as in this report\\(6$\times$ \O4$\times$1 mm)};
+  \node[r=teal!70!navy] (m2) at (-2.05,-6.3) {\textbf{Hybrid}\\magnets at bridge +\\clamp hooks at corners};
+  \node[r=violet] (c1) at (2.05,-6.3) {\textbf{Perimeter clamp}\\hooks over top rim +\\lips under bottom rim};
+  \node[r=coral] (c2) at (6.15,-6.3) {\textbf{Lens-edge snap}\\TPU-lined grips;\\test coupon essential};
   \draw[ar] (q1) -| node[lab,above,pos=0.25]{yes} (q2); \draw[ar] (q1) -| node[lab,above,pos=0.25]{no} (q3);
-  \draw[ar] (q2) -| node[lab,left,pos=0.7]{yes} (m1); \draw[ar] (q2) -| node[lab,right,pos=0.7]{no} (m2);
-  \draw[ar] (q3) -| node[lab,left,pos=0.7]{yes} (c1); \draw[ar] (q3) -| node[lab,right,pos=0.7]{no} (c2);
+  \draw[ar] (q2.south) -- ++(0,-0.35) -| node[lab,above,pos=0.25]{yes} (m1); \draw[ar] (q2.south) -- ++(0,-0.35) -| node[lab,above,pos=0.25]{no} (m2);
+  \draw[ar] (q3.south) -- ++(0,-0.35) -| node[lab,above,pos=0.25]{yes} (c1); \draw[ar] (q3.south) -- ++(0,-0.35) -| node[lab,above,pos=0.25]{no} (c2);
 \end{tikzpicture}
 \end{center}
 

@@ -1,6 +1,6 @@
 """Copy and downscale the figures the report uses from the private design workspace (SRC = blender_ai/frame)."""
 import sys, os
-from PIL import Image
+from PIL import Image, ImageChops, ImageOps
 SRC, OUT = sys.argv[1], "report/figures"
 A = "FINAL_v15/analysis/"
 PICK = {
@@ -34,13 +34,17 @@ EVO = [("v01","archive/clipon_v2_superseded/full/clipon_v2_full_render_front.png
  ("v13","clipon_v2/symmetric_6x1/clipon_v2_symmetric_6x1_render_front.png"),("v14","clipon_v2/faired_6x1/clipon_v2_faired_6x1_render_front.png"),
  ("v15","clipon_v2/v15_scaled/clipon_v2_v15_scaled_render_front.png"),("v15.1","clipon_v2/v15_1_smooth/clipon_v2_v15_1_smooth_render_front.png")]
 os.makedirs(OUT, exist_ok=True); os.makedirs(OUT+"/evo", exist_ok=True)
-def save(src, dst, w=1500):
-    im = Image.open(os.path.join(SRC, src)); im = im.convert("RGB")
+def save(src, dst, w=2000):
+    im = Image.open(os.path.join(SRC, src)).convert("RGB")
+    bg = Image.new("RGB", im.size, im.getpixel((2, 2)))           # trim the uniform margin plots carry
+    box = ImageChops.difference(im, bg).convert("L").point(lambda v: 255 if v > 18 else 0).getbbox()
+    if box: im = im.crop((max(box[0] - 8, 0), max(box[1] - 8, 0), min(box[2] + 8, im.width), min(box[3] + 8, im.height)))
+    if "markup" in dst: im = ImageOps.autocontrast(im, cutoff=1)
     if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
     dst = os.path.splitext(dst)[0] + ".jpg"
     im.save(dst, quality=88, optimize=True)
 for k, v in PICK.items(): save(v, f"{OUT}/{k}")
-for k, v in EVO: save(v, f"{OUT}/evo/{k.replace('.','_')}", 700)
+
 print("ok")
 EXTRA = {"markup_hole": "clipon_v2/aligned_4x1/user_markup_2026-10-03_060546.png", "markup_bevel": "clipon_v2/aligned_4x1/user_markup_2026-10-03_061622.png",
          "markup_gap": "clipon_v2/aligned_4x1/user_markup_2026-10-03_042230.png",

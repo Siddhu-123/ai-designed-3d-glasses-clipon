@@ -4,11 +4,11 @@
 
 <p align="center"><img src="docs/img/page1.png" width="32%"> <img src="docs/img/page2.png" width="32%"> <img src="docs/img/render_3q.jpg" width="32%"></p>
 
-📄 **Full report (21 pages, LaTeX):** [`report/AI_Engineered_3D_Clipon_Report.pdf`](report/AI_Engineered_3D_Clipon_Report.pdf)
+📄 **Full report (23 pages, LaTeX):** [`report/AI_Engineered_3D_Clipon_Report.pdf`](report/AI_Engineered_3D_Clipon_Report.pdf)
 
 | 21 | 108 | 27 days | 0.002 mm | 97.4 % |
 |:-:|:-:|:-:|:-:|:-:|
-| design versions | prompts | 1–27 Oct 2026 | median gap, clip to steel | of each lens left clear |
+| design versions | prompts | 1–27 Oct 2026 | modelled median gap, clip to steel | of each lens left clear |
 
 ---
 
@@ -47,7 +47,7 @@ Every prompt I typed, lightly curated: [`prompts/original_prompts.md`](prompts/o
 
 <p align="center"><img src="docs/img/version_timeline.png" width="90%"></p>
 
-<p align="center"><img src="docs/img/evolution.png" width="90%"><br><sub>From the front the versions look almost identical. After v04 the engineering happened in tenths of a millimetre.</sub></p>
+<p align="center"><img src="docs/img/version_changes.png" width="90%"><br><sub>What changed in each version and why. From the front the versions look almost identical; the engineering happened in tenths of a millimetre.</sub></p>
 
 ## Evidence, not confidence
 

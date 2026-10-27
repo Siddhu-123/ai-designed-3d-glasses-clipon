@@ -56,7 +56,7 @@ fig.tight_layout(); fig.savefig(f"{OUT}/scale_evidence.pdf"); plt.close(fig)
 
 # 3. Final margins: measured value / required value
 M = [("Plastic wall around magnet pocket", 0.997, 0.95, "mm"), ("Front cover over pocket", 1.183, 0.95, "mm"),
-     ("Plastic between pockets", 1.581, 1.4, "mm"), ("Film bending strain limit vs loading peak", 1.0, 0.904, "%"),
+     ("Plastic between pockets", 1.581, 1.4, "mm"), ("Assumed film strain limit vs loading peak", 1.0, 0.898, "%"),
      ("Hold vs clip weight (est.)", 2.0, 0.05, "N"),
      ("PLA strength vs FEA peak (comparative)", 50, 1.4, "MPa")]
 fig, ax = plt.subplots(figsize=(7.2, 2.6))
@@ -92,14 +92,33 @@ if os.path.exists("scripts/prompt_classes.json"):
     fig.tight_layout(); fig.savefig(f"{OUT}/prompt_anatomy.pdf"); plt.close(fig)
     json.dump({c: cnt[c] for c in CAT}, open(f"{OUT}/prompt_counts.json", "w"))
 
-# 5. Evolution strip of front renders
-from PIL import Image
-ev = sorted(os.listdir("report/figures/evo"))
-fig, axs = plt.subplots(4, 4, figsize=(7.2, 4.1))
-for a, f in zip(axs.flat, ev):
-    im = Image.open("report/figures/evo/" + f); w, h = im.size; im = im.crop((0, int(h * 0.18), w, int(h * 0.86)))
-    a.imshow(im); a.set_xticks([]); a.set_yticks([]); fin = f.startswith("v15_1")
-    for s in a.spines.values(): s.set_visible(True); s.set_color(TEAL if fin else "#d5dae3"); s.set_linewidth(2 if fin else 0.6)
-    a.set_title(f[:-4].replace("_", "."), fontsize=7.5, color=TEAL if fin else NAVY, pad=2, fontweight="bold" if fin else "normal")
-fig.tight_layout(pad=0.4, h_pad=0.6, w_pad=0.3); fig.savefig(f"{OUT}/evolution.pdf", dpi=220); plt.close(fig)
+# 5. What changed in each version (from the version reports' "why it was made" sections)
+AX = ["Glasses model", "True scale", "Outline / border", "Film shape", "Film loading", "Magnet count / spots", "Pocket geometry", "Bridge / comfort", "Smooth curves"]
+VC = [("v01", {"Outline / border": "first\nclip", "Film shape": "uncut"}), ("v02", {"Film shape": "cut to\nlens"}),
+      ("v03", {"Outline / border": "flush\nto steel"}), ("v04", {"Magnet count / spots": "4 ×\n4x1"}),
+      ("v05", {"Outline / border": "wide", "Film shape": "almost\nuncut"}), ("v06", {"Outline / border": "wider\nborder"}),
+      ("v07", {"Magnet count / spots": "my\nsketch"}), ("v08", {"Glasses model": "aligned", "Outline / border": "back on\nsteel"}),
+      ("v09", {"Pocket geometry": "square\nto steel", "Outline / border": "smooth\nfront"}), ("v10", {"Film loading": "from\nback"}),
+      ("v11", {"Film shape": "real\nsheets"}), ("v12", {"Glasses model": "mirror\nsym."}),
+      ("v13", {"Magnet count / spots": "6\nsingle"}), ("v14", {"Bridge / comfort": "arch +\nface fit"}),
+      ("v15", {"True scale": "×1.011\nscale"}), ("v16", {"Outline / border": "photo\nre-trace"}), ("v17", {"Film loading": "photo\nre-trace"}),
+      ("v18", {"True scale": "height\n×1.026"}), ("v15.1", {"Smooth curves": "slot,\nlips, cut", "Film shape": "smooth\ncut"})]
+ST = {"v16": RED, "v17": RED, "v18": AMBER, "v15.1": TEAL}
+fig, ax = plt.subplots(figsize=(7.2, 4.0))
+for j, (v, ch) in enumerate(VC):
+    for i, a in enumerate(AX):
+        ax.add_patch(plt.Rectangle((j - 0.46, i - 0.42), 0.92, 0.84, color="#f1f3f7", lw=0))
+        if a in ch:
+            c = ST.get(v, NAVY)
+            ax.add_patch(plt.Rectangle((j - 0.46, i - 0.42), 0.92, 0.84, color=c, lw=0))
+            ax.text(j, i, ch[a], ha="center", va="center", fontsize=5.2, color="white", linespacing=0.95)
+ax.set_xlim(-0.6, len(VC) - 0.4); ax.set_ylim(len(AX) - 0.5, -0.6)
+ax.set_xticks(range(len(VC))); ax.set_xticklabels([v for v, _ in VC], fontsize=7)
+for t, (v, _) in zip(ax.get_xticklabels(), VC): t.set_color(ST.get(v, NAVY)); t.set_fontweight("bold" if v == "v15.1" else "normal")
+ax.set_yticks(range(len(AX))); ax.set_yticklabels(AX, fontsize=7.5); ax.tick_params(length=0)
+for sp in ax.spines.values(): sp.set_visible(False)
+ax.xaxis.tick_top()
+from matplotlib.patches import Patch
+ax.legend(handles=[Patch(color=NAVY,label="change kept"),Patch(color=RED,label="rejected / abandoned"),Patch(color=AMBER,label="kept, not for print"),Patch(color=TEAL,label="final")],loc="upper center",bbox_to_anchor=(0.5,-0.01),ncol=4,frameon=False,fontsize=7)
+fig.tight_layout(); fig.savefig(f"{OUT}/version_changes.pdf"); plt.close(fig)
 print("charts ok")
