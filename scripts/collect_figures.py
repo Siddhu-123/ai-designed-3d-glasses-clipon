@@ -25,14 +25,14 @@ PICK = {
  "cura.jpg": "overview/img/06_cura_preview_v14_same_recipe.jpg", "template.png": "overview/img/film_template_page.png",
  "magnet_pockets_back.png": "FINAL_v15/magnet_pockets_back.png", "stl_quality.png": A+"07_print/v15_1_stl_quality.png",
 }
-EVO = [("v01","archive/clipon_v2_superseded/full/clipon_v2_full_render_front.png"),("v02","archive/clipon_v2_superseded/cut/clipon_v2_cut_render_front.png"),
- ("v03","archive/clipon_v2_superseded/flush/clipon_v2_flush_render_front.png"),("v04","archive/clipon_v2_superseded/flush_4x1/clipon_v2_flush_4x1_render_front.png"),
- ("v05","archive/clipon_v2_superseded/wide_4x1/clipon_v2_wide_4x1_render_front.png"),("v06","archive/clipon_v2_superseded/strong_4x1/clipon_v2_strong_4x1_render_front.png"),
- ("v07","archive/clipon_v2_superseded/strong2_4x1/clipon_v2_strong2_4x1_render_front.png"),("v08","clipon_v2/aligned_4x1/clipon_v2_aligned_4x1_render_front.png"),
- ("v09","clipon_v2/polished_4x1/clipon_v2_polished_4x1_render_front.png"),("v10","clipon_v2/backload_4x1/clipon_v2_backload_4x1_render_front.png"),
- ("v11","clipon_v2/refined_4x1/clipon_v2_refined_4x1_render_front.png"),("v12","clipon_v2/symmetric_4x1/clipon_v2_symmetric_4x1_render_front.png"),
- ("v13","clipon_v2/symmetric_6x1/clipon_v2_symmetric_6x1_render_front.png"),("v14","clipon_v2/faired_6x1/clipon_v2_faired_6x1_render_front.png"),
- ("v15","clipon_v2/v15_scaled/clipon_v2_v15_scaled_render_front.png"),("v15.1","clipon_v2/v15_1_smooth/clipon_v2_v15_1_smooth_render_front.png")]
+EVO = [("v01","archive/archive/clipon_v2_superseded/full/clipon_v2_full_render_front.png"),("v02","archive/archive/clipon_v2_superseded/cut/clipon_v2_cut_render_front.png"),
+ ("v03","archive/archive/clipon_v2_superseded/flush/clipon_v2_flush_render_front.png"),("v04","archive/archive/clipon_v2_superseded/flush_4x1/clipon_v2_flush_4x1_render_front.png"),
+ ("v05","archive/archive/clipon_v2_superseded/wide_4x1/clipon_v2_wide_4x1_render_front.png"),("v06","archive/archive/clipon_v2_superseded/strong_4x1/clipon_v2_strong_4x1_render_front.png"),
+ ("v07","archive/archive/clipon_v2_superseded/strong2_4x1/clipon_v2_strong2_4x1_render_front.png"),("v08",archive/clipon_v2/aligned_4x1/clipon_v2_aligned_4x1_render_front.png"),
+ ("v09",archive/clipon_v2/polished_4x1/clipon_v2_polished_4x1_render_front.png"),("v10",archive/clipon_v2/backload_4x1/clipon_v2_backload_4x1_render_front.png"),
+ ("v11",archive/clipon_v2/refined_4x1/clipon_v2_refined_4x1_render_front.png"),("v12",archive/clipon_v2/symmetric_4x1/clipon_v2_symmetric_4x1_render_front.png"),
+ ("v13",archive/clipon_v2/symmetric_6x1/clipon_v2_symmetric_6x1_render_front.png"),("v14",archive/clipon_v2/faired_6x1/clipon_v2_faired_6x1_render_front.png"),
+ ("v15",archive/clipon_v2/v15_scaled/clipon_v2_v15_scaled_render_front.png"),("v15.1",archive/clipon_v2/v15_1_smooth/clipon_v2_v15_1_smooth_render_front.png")]
 os.makedirs(OUT, exist_ok=True); os.makedirs(OUT+"/evo", exist_ok=True)
 def save(src, dst, w=2000):
     im = Image.open(os.path.join(SRC, src)).convert("RGB")
@@ -46,8 +46,8 @@ def save(src, dst, w=2000):
 for k, v in PICK.items(): save(v, f"{OUT}/{k}")
 
 print("ok")
-EXTRA = {"markup_hole": "clipon_v2/aligned_4x1/user_markup_2026-10-03_060546.png", "markup_bevel": "clipon_v2/aligned_4x1/user_markup_2026-10-03_061622.png",
-         "markup_gap": "clipon_v2/aligned_4x1/user_markup_2026-10-03_042230.png",
-         "six_magnet_proposal": "clipon_v2/symmetric_4x1/clipon_v2_symmetric_4x1_magnet_layout_6_PROPOSAL.png",
-         "film_measured": "clipon_v2/reference/IMG_7905_measured.jpg", "gap_before_after": "clipon_v2/aligned_4x1/clipon_v2_aligned_4x1_gap_before_after.png"}
+EXTRA = {"markup_hole": archive/clipon_v2/aligned_4x1/user_markup_2026-10-03_060546.png", "markup_bevel": archive/clipon_v2/aligned_4x1/user_markup_2026-10-03_061622.png",
+         "markup_gap": archive/clipon_v2/aligned_4x1/user_markup_2026-10-03_042230.png",
+         "six_magnet_proposal": archive/clipon_v2/symmetric_4x1/clipon_v2_symmetric_4x1_magnet_layout_6_PROPOSAL.png",
+         "film_measured": archive/clipon_v2/reference/IMG_7905_measured.jpg", "gap_before_after": archive/clipon_v2/aligned_4x1/clipon_v2_aligned_4x1_gap_before_after.png"}
 for k, v in EXTRA.items(): save(v, f"{OUT}/{k}")

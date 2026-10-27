@@ -57,7 +57,7 @@ fig.tight_layout(); fig.savefig(f"{OUT}/scale_evidence.pdf"); plt.close(fig)
 # 3. Final margins: measured value / required value
 M = [("Plastic wall around magnet pocket", 0.997, 0.95, "mm"), ("Front cover over pocket", 1.183, 0.95, "mm"),
      ("Plastic between pockets", 1.581, 1.4, "mm"), ("Assumed film strain limit vs loading peak", 1.0, 0.898, "%"),
-     ("Hold vs clip weight (est.)", 2.0, 0.05, "N"),
+     ("Hold vs clip weight (est.)", 1.9, 0.048, "N"),
      ("PLA strength vs FEA peak (comparative)", 50, 1.4, "MPa")]
 fig, ax = plt.subplots(figsize=(7.2, 2.6))
 for i, (lab, val, req, u) in enumerate(M):
