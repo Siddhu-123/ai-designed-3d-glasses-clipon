@@ -1,0 +1,891 @@
+[
+  {
+    "n": 1,
+    "primary": "VISION",
+    "secondary": [
+      "EVIDENCE",
+      "CONSTRAINT"
+    ],
+    "why": "Defines an accurate 3D glasses replica from reference views, preserving the original model and matching surface curvature.",
+    "skill": "turns a physical goal into modeling requirements"
+  },
+  {
+    "n": 2,
+    "primary": "EVIDENCE",
+    "secondary": [],
+    "why": "Identifies the Bezier curve as a manually drawn reference.",
+    "skill": "explains the provenance of reference geometry"
+  },
+  {
+    "n": 3,
+    "primary": "CONSTRAINT",
+    "secondary": [
+      "CORRECTION"
+    ],
+    "why": "Requires reconstruction from three image views rather than the LiDAR scan.",
+    "skill": "selects the authoritative source for geometry"
+  },
+  {
+    "n": 4,
+    "primary": "CORRECTION",
+    "secondary": [
+      "CHALLENGE"
+    ],
+    "why": "Points out visible image-to-model misalignment and challenges the failure to sculpt it accurately.",
+    "skill": "uses visible mismatch to challenge output quality"
+  },
+  {
+    "n": 5,
+    "primary": "CONTINUE",
+    "secondary": [],
+    "why": "Asks for further optimization of a nearly satisfactory model.",
+    "skill": "gives directional feedback without changing scope"
+  },
+  {
+    "n": 6,
+    "primary": "VERIFY",
+    "secondary": [
+      "EVIDENCE",
+      "CONSTRAINT"
+    ],
+    "why": "Requests alignment accuracy and finer fitting while allowing small photo-angle errors and prioritizing the attachment surface.",
+    "skill": "separates camera error from geometry error"
+  },
+  {
+    "n": 7,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests removal of unnecessary files from the project folder.",
+    "skill": "reduces project clutter"
+  },
+  {
+    "n": 8,
+    "primary": "CORRECTION",
+    "secondary": [
+      "EVIDENCE"
+    ],
+    "why": "Directs attention to highlighted adjustments in supplied screenshots.",
+    "skill": "communicates changes through visual annotations"
+  },
+  {
+    "n": 9,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Approves the current result and requests removal of other files and backups.",
+    "skill": "identifies the accepted artifact for cleanup"
+  },
+  {
+    "n": 10,
+    "primary": "VERIFY",
+    "secondary": [
+      "VISION"
+    ],
+    "why": "Requests a printable export and a way to confirm real-world scale before developing the attachment.",
+    "skill": "checks physical scale before fabrication"
+  },
+  {
+    "n": 11,
+    "primary": "EVIDENCE",
+    "secondary": [
+      "CORRECTION"
+    ],
+    "why": "Supplies film photos and size references, explaining that the red and white metal pieces are discarded experimental attachments.",
+    "skill": "distinguishes the part from experimental artifacts"
+  },
+  {
+    "n": 12,
+    "primary": "CONSTRAINT",
+    "secondary": [],
+    "why": "Defers magnet holes until magnet sizing is known and requires grooves for easy film insertion.",
+    "skill": "defines assembly requirements before detailing"
+  },
+  {
+    "n": 13,
+    "primary": "VERIFY",
+    "secondary": [
+      "CONSTRAINT"
+    ],
+    "why": "Requests stress, removal-force, visibility and magnet-placement analysis plus suitable magnet purchasing options.",
+    "skill": "links component choice to structural loads"
+  },
+  {
+    "n": 14,
+    "primary": "VERIFY",
+    "secondary": [
+      "CONSTRAINT"
+    ],
+    "why": "Requests an overlay on the glasses to inspect view loss and thin areas, postponing another STL until approval.",
+    "skill": "uses assembly context to assess fit"
+  },
+  {
+    "n": 15,
+    "primary": "CORRECTION",
+    "secondary": [
+      "VERIFY",
+      "EVIDENCE"
+    ],
+    "why": "Flags an oversized film cavity and asks for a dimensioned film model and fit comparison using supplied photos.",
+    "skill": "checks relative dimensions against physical references"
+  },
+  {
+    "n": 16,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Requests an overlay of the generated film on a supplied photo to check its accuracy.",
+    "skill": "validates modeled geometry against a photograph"
+  },
+  {
+    "n": 17,
+    "primary": "EVIDENCE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Introduces larger film and a coin scale reference, requesting revised geometry, exports, magnet placement and stress analysis.",
+    "skill": "anchors redesign to a known-size reference"
+  },
+  {
+    "n": 18,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests omission of material related to the superseded film.",
+    "skill": "retires obsolete design material"
+  },
+  {
+    "n": 19,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Extends cleanup to obsolete pictures, STL files and visualizations.",
+    "skill": "defines the scope of artifact cleanup"
+  },
+  {
+    "n": 20,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY",
+      "HOUSEKEEP"
+    ],
+    "why": "Questions cleanup completeness and whether the film comparison includes the correct outlines and extra indentation.",
+    "skill": "checks comparison assumptions and completeness"
+  },
+  {
+    "n": 21,
+    "primary": "CONSTRAINT",
+    "secondary": [
+      "CORRECTION"
+    ],
+    "why": "Rejects a cutting template and requires the frame to accept the existing uncut film.",
+    "skill": "protects the physical component from redesign"
+  },
+  {
+    "n": 22,
+    "primary": "CORRECTION",
+    "secondary": [
+      "VERIFY",
+      "HOUSEKEEP"
+    ],
+    "why": "Objects to deleting V2 and requests analysis of whether the newer design protrudes enough to obstruct vision.",
+    "skill": "preserves alternatives while checking a tradeoff"
+  },
+  {
+    "n": 23,
+    "primary": "CONSTRAINT",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Requires one magnet size and asks for suitable dimensions and pull-force estimates to guide shopping.",
+    "skill": "simplifies procurement with a single component size"
+  },
+  {
+    "n": 26,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests clearer organization of a confusing repository.",
+    "skill": "makes design artifacts easier to navigate"
+  },
+  {
+    "n": 28,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Asks whether the final design is printable and satisfies all stated needs.",
+    "skill": "checks readiness against the full requirements"
+  },
+  {
+    "n": 30,
+    "primary": "EVIDENCE",
+    "secondary": [
+      "CONSTRAINT"
+    ],
+    "why": "Reports purchasing 4 mm by 1 mm magnets rated for 172 g pull force.",
+    "skill": "injects purchased-component specifications"
+  },
+  {
+    "n": 32,
+    "primary": "CONSTRAINT",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Requests missing comparison images and prioritizes preserving film area while keeping the nose comfortable.",
+    "skill": "balances optical coverage with wearer comfort"
+  },
+  {
+    "n": 34,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Points to a frame layout image for inspection without specifying a particular defect.",
+    "skill": "directs attention to a concrete visual artifact"
+  },
+  {
+    "n": 36,
+    "primary": "CORRECTION",
+    "secondary": [
+      "CONSTRAINT"
+    ],
+    "why": "Proposes moving magnets into thicker areas and adding material beneath the frame to secure the film and strengthen it.",
+    "skill": "uses available space to improve structural support"
+  },
+  {
+    "n": 38,
+    "primary": "CORRECTION",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Flags changed base-glasses geometry and a misaligned bridge plane in a screenshot.",
+    "skill": "detects regression in reference geometry"
+  },
+  {
+    "n": 40,
+    "primary": "CORRECTION",
+    "secondary": [],
+    "why": "Identifies two shape spikes and requires realignment of the glasses before rebuilding the attachment.",
+    "skill": "fixes upstream geometry before dependent parts"
+  },
+  {
+    "n": 42,
+    "primary": "CONTINUE",
+    "secondary": [],
+    "why": "Asks the agent to continue the current work.",
+    "skill": "sustains the current task"
+  },
+  {
+    "n": 44,
+    "primary": "CORRECTION",
+    "secondary": [
+      "CHALLENGE"
+    ],
+    "why": "Points to a visible gap and questions why prior analysis did not lead to fixing it.",
+    "skill": "holds analysis accountable to visible defects"
+  },
+  {
+    "n": 46,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Authorizes overwriting the Blender file once.",
+    "skill": "clarifies permission to replace an artifact"
+  },
+  {
+    "n": 48,
+    "primary": "CORRECTION",
+    "secondary": [
+      "CONSTRAINT",
+      "VERIFY"
+    ],
+    "why": "Flags slanted magnet holes and rough surfaces, requiring concealed pockets, cleaner geometry and full checks.",
+    "skill": "connects pocket geometry to physical assembly"
+  },
+  {
+    "n": 50,
+    "primary": "CONTINUE",
+    "secondary": [],
+    "why": "Requests another attempt without adding new requirements.",
+    "skill": "retries an unsatisfactory attempt"
+  },
+  {
+    "n": 52,
+    "primary": "CORRECTION",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Identifies possible weak areas near the bridge and edges and asks whether thicker sections or support bridges would help.",
+    "skill": "turns visible weak spots into reinforcement questions"
+  },
+  {
+    "n": 54,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Requests groove cross-sections and an explanation of how film can actually be inserted into the frame.",
+    "skill": "tests assembly feasibility through section views"
+  },
+  {
+    "n": 56,
+    "primary": "CONSTRAINT",
+    "secondary": [],
+    "why": "Requires a film holder that avoids bending the flat film and preserves usable viewing area.",
+    "skill": "states material handling limits explicitly"
+  },
+  {
+    "n": 58,
+    "primary": "CONTINUE",
+    "secondary": [],
+    "why": "Requests resumption after the app quit during work.",
+    "skill": "restores continuity after interruption"
+  },
+  {
+    "n": 60,
+    "primary": "CONSTRAINT",
+    "secondary": [],
+    "why": "Clarifies that a bend along one direction is acceptable but dome-like bending is not.",
+    "skill": "distinguishes cylindrical from compound curvature"
+  },
+  {
+    "n": 62,
+    "primary": "ORCHESTRATE",
+    "secondary": [
+      "EVIDENCE"
+    ],
+    "why": "Provides a rough film-thickness reference and requests Agent Hub delegation to conserve the remaining usage budget.",
+    "skill": "combines rough measurement with budgeted delegation"
+  },
+  {
+    "n": 64,
+    "primary": "ORCHESTRATE",
+    "secondary": [
+      "CONTINUE"
+    ],
+    "why": "Requests review and improvement of work and prompts from another AI after the usage limit resets.",
+    "skill": "carries requirements across AI handoffs"
+  },
+  {
+    "n": 66,
+    "primary": "ORCHESTRATE",
+    "secondary": [
+      "HOUSEKEEP"
+    ],
+    "why": "Delegates cleanup, project reporting and model-identity fixes across harnesses while prioritizing usage savings and quality.",
+    "skill": "allocates work across models under a usage budget"
+  },
+  {
+    "n": 68,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Asks whether the frame is ready.",
+    "skill": "requests a readiness verdict"
+  },
+  {
+    "n": 70,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests removal of heavy obsolete artifacts while retaining useful knowledge, logs and reports.",
+    "skill": "separates reusable knowledge from expendable files"
+  },
+  {
+    "n": 72,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "EVIDENCE",
+      "VERIFY"
+    ],
+    "why": "Questions the retention calculations using weak real-world magnet feel and the manufacturer's pull-force rating.",
+    "skill": "tests rated specifications against actual behavior"
+  },
+  {
+    "n": 74,
+    "primary": "CHALLENGE",
+    "secondary": [],
+    "why": "Asks how the clip-on weight was calculated.",
+    "skill": "demands a traceable calculation"
+  },
+  {
+    "n": 76,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Asks whether more magnets can fit on the steel surface to increase total holding force.",
+    "skill": "explores component count as a design variable"
+  },
+  {
+    "n": 78,
+    "primary": "CONSTRAINT",
+    "secondary": [
+      "EVIDENCE"
+    ],
+    "why": "Restricts the design to the available 4 mm by 1 mm magnets.",
+    "skill": "grounds the design in available hardware"
+  },
+  {
+    "n": 80,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Requests a placement visual so alternative magnet locations can be discussed and explained.",
+    "skill": "creates a visual basis for design review"
+  },
+  {
+    "n": 82,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Requests a color gradient showing where poor contact prevents magnet placement.",
+    "skill": "makes contact limits visually inspectable"
+  },
+  {
+    "n": 84,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Questions why the whole steel frame cannot be used for magnet contact and asks whether flatness is the limiting factor.",
+    "skill": "probes the geometric reason for placement limits"
+  },
+  {
+    "n": 86,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Requests a front-view depth and flatness map to judge available magnet contact areas.",
+    "skill": "uses depth visualization to assess surface contact"
+  },
+  {
+    "n": 88,
+    "primary": "CORRECTION",
+    "secondary": [
+      "CONSTRAINT",
+      "VERIFY"
+    ],
+    "why": "Flags asymmetry, questions whether the correct version is in use and requires work on the latest defect-free symmetric frame.",
+    "skill": "checks version identity and geometric symmetry"
+  },
+  {
+    "n": 92,
+    "primary": "EVIDENCE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Reports a physical trial fitting 20 magnets, including stacks, and asks about structural consequences.",
+    "skill": "tests placement capacity with real hardware"
+  },
+  {
+    "n": 94,
+    "primary": "CONSTRAINT",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Clarifies that the demonstrated magnet count is a maximum and asks the agent to select enough magnets for retention.",
+    "skill": "distinguishes capacity from the required design count"
+  },
+  {
+    "n": 96,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Asks whether magnet seating and contact with the steel frame have been checked.",
+    "skill": "verifies the actual load-transfer interface"
+  },
+  {
+    "n": 98,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests clear version naming and explicit identification of the latest design throughout the repository.",
+    "skill": "makes the current design unambiguous"
+  },
+  {
+    "n": 100,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Questions whether a four-magnet design provides sufficient pull force.",
+    "skill": "challenges adequacy of the chosen component count"
+  },
+  {
+    "n": 102,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Asks for clarification on whether six magnets are stacked.",
+    "skill": "clarifies the proposed magnet arrangement"
+  },
+  {
+    "n": 107,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Requests a Blender camera view from the wearer's eye position.",
+    "skill": "evaluates the design from the user's viewpoint"
+  },
+  {
+    "n": 108,
+    "primary": "ORCHESTRATE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Requests multiple models to review the design with full requirements, then fix only issues that are real and relevant.",
+    "skill": "uses independent reviews with a relevance filter"
+  },
+  {
+    "n": 111,
+    "primary": "ORCHESTRATE",
+    "secondary": [
+      "CONSTRAINT"
+    ],
+    "why": "Restricts Codex involvement to explicit permission when token limits require it.",
+    "skill": "sets boundaries on cross-model delegation"
+  },
+  {
+    "n": 113,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Questions whether the checks cover comfort or merely detect nose contact.",
+    "skill": "distinguishes user comfort from geometric clearance"
+  },
+  {
+    "n": 114,
+    "primary": "VERIFY",
+    "secondary": [
+      "CONSTRAINT"
+    ],
+    "why": "Adds nose-clearance and weight-balance checks and offers to supply wearer-specific measurements.",
+    "skill": "expands acceptance checks to ergonomic loads"
+  },
+  {
+    "n": 115,
+    "primary": "VERIFY",
+    "secondary": [
+      "EVIDENCE"
+    ],
+    "why": "Requests comfort assessment using a supplied wearer photo and, if possible, a face model with the glasses fitted.",
+    "skill": "places the design in wearer-specific context"
+  },
+  {
+    "n": 117,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests repository cleanup and organization.",
+    "skill": "keeps project artifacts navigable"
+  },
+  {
+    "n": 131,
+    "primary": "VERIFY",
+    "secondary": [
+      "HOUSEKEEP"
+    ],
+    "why": "Requests print-orientation advice, checks for stepped film-holder surfaces and final tweaks, and a clearly named final STL.",
+    "skill": "connects print orientation to functional surface quality"
+  },
+  {
+    "n": 133,
+    "primary": "ORCHESTRATE",
+    "secondary": [],
+    "why": "Asks whether the agent can control print orientation directly in Ultimaker through an app integration.",
+    "skill": "checks tool capability before assigning app work"
+  },
+  {
+    "n": 135,
+    "primary": "ORCHESTRATE",
+    "secondary": [
+      "CONTINUE"
+    ],
+    "why": "Approves the proposed action while asking for minimal usage.",
+    "skill": "sets a resource budget for continued work"
+  },
+  {
+    "n": 137,
+    "primary": "CONTINUE",
+    "secondary": [],
+    "why": "Requests a status update without adding a design requirement.",
+    "skill": "reestablishes task status"
+  },
+  {
+    "n": 139,
+    "primary": "VERIFY",
+    "secondary": [
+      "CORRECTION"
+    ],
+    "why": "Requests printability checks of thin white sections, sensitive areas and film-holder alignment, allowing more usage if needed.",
+    "skill": "prioritizes critical print features over usage savings"
+  },
+  {
+    "n": 140,
+    "primary": "CORRECTION",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Points out very thin white linings and asks why they have not been checked.",
+    "skill": "escalates a specific unresolved printability concern"
+  },
+  {
+    "n": 141,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Requests a missing explanation of why flat printing cannot save material and time while preserving the lining.",
+    "skill": "demands justification for a manufacturing tradeoff"
+  },
+  {
+    "n": 142,
+    "primary": "CONTINUE",
+    "secondary": [
+      "CONSTRAINT"
+    ],
+    "why": "Accepts the explanation and approves printing upright.",
+    "skill": "resolves a manufacturing choice and authorizes progress"
+  },
+  {
+    "n": 143,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY",
+      "EVIDENCE"
+    ],
+    "why": "Questions print-readiness confidence and asks how testing and scale checks use the supplied scan, photos and coin reference.",
+    "skill": "demands evidence before a one-shot fabrication"
+  },
+  {
+    "n": 144,
+    "primary": "EVIDENCE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Supplies camera details, a coin, a staple, a ruler and an estimated grid spacing to check model-to-glasses fit.",
+    "skill": "provides multiple physical calibration references"
+  },
+  {
+    "n": 146,
+    "primary": "CONSTRAINT",
+    "secondary": [
+      "EVIDENCE"
+    ],
+    "why": "Explains that coin dimensions should be looked up for calibration and requests fine numerical precision.",
+    "skill": "uses known objects to specify measurement precision"
+  },
+  {
+    "n": 147,
+    "primary": "EVIDENCE",
+    "secondary": [
+      "CONTINUE"
+    ],
+    "why": "Confirms the paper grid has 6 mm squares and authorizes proceeding with V15 using that reference.",
+    "skill": "resolves calibration uncertainty with a known grid"
+  },
+  {
+    "n": 148,
+    "primary": "CHALLENGE",
+    "secondary": [],
+    "why": "Challenges renewed confidence after an earlier missed issue and asks why this version should work.",
+    "skill": "demands evidence over repeated reassurance"
+  },
+  {
+    "n": 149,
+    "primary": "CONSTRAINT",
+    "secondary": [
+      "VERIFY",
+      "EVIDENCE"
+    ],
+    "why": "Accepts some fit error and assumptions but prioritizes unobstructed vision, major mismatches, comparison visuals and a final STL.",
+    "skill": "defines tolerances by functional impact"
+  },
+  {
+    "n": 150,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Requests photo-to-model comparisons that show fit errors, distortions and their locations.",
+    "skill": "asks for localized geometric error visualization"
+  },
+  {
+    "n": 151,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Questions right-side film cropping and requests a film-to-glasses comparison showing lost coverage.",
+    "skill": "tests whether material removal is necessary"
+  },
+  {
+    "n": 152,
+    "primary": "CORRECTION",
+    "secondary": [
+      "EVIDENCE"
+    ],
+    "why": "Clarifies that the latest photos were for checking size and refers back to a supplied manually drawn curve.",
+    "skill": "clarifies the intended role of reference inputs"
+  },
+  {
+    "n": 153,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY",
+      "CORRECTION"
+    ],
+    "why": "Demands a version audit, restoration of intended outlines, calibrated scale and specific final-STL fit errors instead of reassurance.",
+    "skill": "requires quantified error and accountability"
+  },
+  {
+    "n": 154,
+    "primary": "ORCHESTRATE",
+    "secondary": [],
+    "why": "Requests use of GPT 6.1 because the user considers it free.",
+    "skill": "selects a model based on perceived usage cost"
+  },
+  {
+    "n": 155,
+    "primary": "EVIDENCE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Supplies flatter and side-view images and suggests using grid distortion to recover viewing angle and assess fit.",
+    "skill": "improves reference capture for perspective correction"
+  },
+  {
+    "n": 157,
+    "primary": "VERIFY",
+    "secondary": [
+      "EVIDENCE"
+    ],
+    "why": "Asks how numbers printed on the glasses arm could help establish dimensions.",
+    "skill": "looks for independent dimensional references"
+  },
+  {
+    "n": 159,
+    "primary": "EVIDENCE",
+    "secondary": [],
+    "why": "Supplies a product-page link as a possible source of a better glasses reference image.",
+    "skill": "adds a manufacturer reference to the evidence"
+  },
+  {
+    "n": 161,
+    "primary": "CORRECTION",
+    "secondary": [],
+    "why": "Replaces the previously selected reference with the intended one.",
+    "skill": "corrects reference selection"
+  },
+  {
+    "n": 162,
+    "primary": "CORRECTION",
+    "secondary": [],
+    "why": "Clarifies that the glasses differ in shape rather than just color.",
+    "skill": "distinguishes geometry mismatch from appearance"
+  },
+  {
+    "n": 163,
+    "primary": "CONTINUE",
+    "secondary": [],
+    "why": "Interrupts the current request without adding design information.",
+    "skill": "controls the interaction flow"
+  },
+  {
+    "n": 164,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "CONTINUE"
+    ],
+    "why": "Questions why the known glasses shape and scale cannot now yield a correctly fitted V19.",
+    "skill": "challenges unresolved errors after better calibration"
+  },
+  {
+    "n": 165,
+    "primary": "VERIFY",
+    "secondary": [
+      "CONSTRAINT"
+    ],
+    "why": "Requests surface-contact and fit assessment to ensure adequate magnetic retention during a movie.",
+    "skill": "links fit quality to real-use retention"
+  },
+  {
+    "n": 166,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "EVIDENCE"
+    ],
+    "why": "Challenges a claim that the frame is not magnetic by recalling photos of magnets attached to it.",
+    "skill": "uses a physical demonstration to rebut an assumption"
+  },
+  {
+    "n": 167,
+    "primary": "CONTINUE",
+    "secondary": [],
+    "why": "Directs the agent to finish the remaining work and deliver the final model.",
+    "skill": "pushes an ongoing task to completion"
+  },
+  {
+    "n": 168,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests folder cleanup, version control and retention of important information and overview images.",
+    "skill": "preserves design history while organizing deliverables"
+  },
+  {
+    "n": 169,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "CORRECTION"
+    ],
+    "why": "Points to problems in comparisons and questions the claim that differences are negligible.",
+    "skill": "checks conclusions against visible comparison errors"
+  },
+  {
+    "n": 170,
+    "primary": "CHALLENGE",
+    "secondary": [],
+    "why": "Challenges unreliable assurances after the STL has already been sent for printing and asks how wrong the advice could be.",
+    "skill": "demands calibrated confidence after fabrication handoff"
+  },
+  {
+    "n": 171,
+    "primary": "VERIFY",
+    "secondary": [
+      "HOUSEKEEP"
+    ],
+    "why": "Requests every final-version analysis of fit, durability, shape and magnet placement, collected in final_v15.",
+    "skill": "requires comprehensive checks on the actual final version"
+  },
+  {
+    "n": 172,
+    "primary": "CHALLENGE",
+    "secondary": [
+      "VERIFY"
+    ],
+    "why": "Questions whether the completed analyses imply that design changes are still needed.",
+    "skill": "connects analysis results to corrective action"
+  },
+  {
+    "n": 173,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests addition of the Blender file to the final folder.",
+    "skill": "keeps the editable source with final deliverables"
+  },
+  {
+    "n": 174,
+    "primary": "CORRECTION",
+    "secondary": [
+      "CHALLENGE"
+    ],
+    "why": "Flags an unnecessarily complex film cut caused by poor outline modeling and challenges the resulting burden on the user.",
+    "skill": "traces manufacturing difficulty to a modeling defect"
+  },
+  {
+    "n": 175,
+    "primary": "CORRECTION",
+    "secondary": [],
+    "why": "Points out unwanted curves in the frame and asks for them to be fixed.",
+    "skill": "identifies a concrete shape defect"
+  },
+  {
+    "n": 176,
+    "primary": "HOUSEKEEP",
+    "secondary": [],
+    "why": "Requests updates to all final deliverables.",
+    "skill": "keeps final artifacts synchronized"
+  },
+  {
+    "n": 177,
+    "primary": "VERIFY",
+    "secondary": [],
+    "why": "Asks whether fit, smoothness, design, appearance and size have all been checked.",
+    "skill": "checks acceptance across functional and visual criteria"
+  },
+  {
+    "n": 178,
+    "primary": "HOUSEKEEP",
+    "secondary": [
+      "ORCHESTRATE"
+    ],
+    "why": "Requests structured reports for every version, including achievements, gaps and linked prompts, using multiple Haiku subagents.",
+    "skill": "structures design history and delegates reporting"
+  }
+]

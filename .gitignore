@@ -1,0 +1,8 @@
+report/*.aux
+report/*.log
+report/*.toc
+report/*.out
+report/main.pdf
+report/build.log
+.DS_Store
+__pycache__/
